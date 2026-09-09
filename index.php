@@ -1,66 +1,62 @@
 <?php
- require_once'config/config.php';
+require_once 'config.php';
 
- $user_id = "root" ?? null;
- $user_email = "root" ?? null;
+if(isset($_SESSION['user_id'])){
+    header('location' . BASE_URL .  '/app/' . $_SESSION['user_role'] . '/index.php');
+    exit;
+}
 
- $buttons = [
-    'Login',
-    'Lagout',
-    'Create Record',
-    'Update record',
-    'Delete Record',
-    'View Record',
-    'upload File',
-    'Download',
-    'Search',
-    'Generate Report'
+$error='';
 
- ];
- ?>
-
- <table border="1" cellpadding="10">
-    <tr>
-        <th>Action</th>
-        <th>Test</th>
-</tr>
-<?php foreach ($buttons as $button): ?>
-    <tr>
-        <td><?= htmlspecialchars($button) ?></td>
-        <td>
-            <form method="post">
-                <input type="hidden" name="action"
-                value="<?= htmlspecialchars($button) ?>"
-                >
-                <button type="submit">Test</button>
-</form>
-</td>
-</tr>
-<?php endforeach; ?>
-</table>
-
-<?php
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
+      $login = TRIM($_POST['login'] ?? '');
+    $password = $_POST['password'] ?? '';
 
-    $action = $_POST['action'] ?? "test_activity";
 
-    $status = random_int(0,1) === 1? 'success':'failed';
+   if(loginUser($pdo,$login,$password)){
+     echo'location:' .BASE_URL  .  '/app/' . $_SESSION['user_role'] . '/index.php';
+    header('location:' . BASE_URL .  '/app/' . $_SESSION['user_role'] . '/index.php');
+    exit;
+}
 
-    $success = logActivity(
-        $pdo,
-        $user_id,
-        $user_email,
-        $action,
-        $status
-    );
+    $error = 'Invalid login credentials';
+}
 
-    if($success){
-        echo "<p>Activity: " . htmlspecialchars($action) .
-        " Status: " . htmlspecialchars($status) .
-        " Log inserted successfully </p>";
-    }else{
-        echo "<p>Failed to insert activity log</P>";
-    }
-
-    }
 ?>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<form method = "POST">
+     <label> Username or Email</label>
+     <input type = "test"
+             name= "login"
+             required
+
+   >form=method = "POST">
+       <label>Username or Email</label>
+       <input type="test"
+           name="login"
+           required>
+    <br>
+    <button type="submit">Sign In</button>/button>
+    </form>
+
+    
+</body>
+</html>
