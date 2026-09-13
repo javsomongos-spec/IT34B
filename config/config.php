@@ -4,10 +4,9 @@ session_start();
 require_once(__DIR__ . '/../includes/activity-logger.php');
 
 // define('','');
-define('BASE_URL','http://localhost/IT34B');
-
+define('BASE_URL','http://localhost/dev-omongos_jay/IT34B');
 define('DB_HOST','localhost');
-define('DB_NAME','it34b_lab_1');
+define('DB_NAME','b_lab_1');
 define('DB_USER','root');
 define('DB_PASS','');
 
