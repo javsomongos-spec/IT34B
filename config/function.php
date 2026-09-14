@@ -15,7 +15,7 @@ function loginUser($pdo,$login,$password){
             user_email,
             user_username,
             user_password,
-            user_role,
+            user_role
         FROM users
         WHERE user_email =:login
              OR user_username =:login
