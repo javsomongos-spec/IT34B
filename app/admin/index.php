@@ -59,8 +59,7 @@ $activities = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 <tr>
 
-                    <td><?= htmlspecialchars( $activity['activity_log_id']) ?></td>
-                    
+                    <td><?= htmlspecialchars($activity['activity_logger_id']) ?></td>
                     <td><?= htmlspecialchars( $activity['user_id']) ?></td>
                     
                     <td><?= htmlspecialchars( $activity['user_email']) ?></td>

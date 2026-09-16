@@ -5,24 +5,22 @@ function redirect($path){
     exit;
 }
 
-
-
-function loginUser($pdo,$login,$password){
-   #Query 2
-   $sql = "
-       SELECT 
+function loginUser($pdo, $login, $password){
+    #Query 2
+     $sql = "
+        SELECT
             user_id,
             user_email,
             user_username,
             user_password,
             user_role
         FROM users
-        WHERE user_email =:login
-             OR user_username =:login
-        LIMIT 1 
+        WHERE user_email = :login
+           OR user_username = :login
+        LIMIT 1
     ";
 
- $stmt = $pdo->prepare($sql);
+    $stmt = $pdo->prepare($sql);
     $stmt->execute([':login' => $login]);
 
     $user = $stmt->fetch();
@@ -40,12 +38,11 @@ function loginUser($pdo,$login,$password){
     $_SESSION['user_username'] = $user['user_username'];
     $_SESSION['user_role'] = $user['user_role'];
 
-          return true;
+    return true;
 }
 
-function requireLogin()
-{
-    if (!isset($_SESSION['user_id'])) {
+function requireLogin(){
+    if(!isset($_SESSION['user_id'])){
         header('Location: ' . BASE_URL . '/index.php');
         exit;
     }
@@ -54,9 +51,12 @@ function requireLogin()
 function requireRole($role)
 {
     requireLogin();
-
-    if ($_SESSION['user_role'] !== $role) {
-        http_response_code(403);
-        die('Access denied.');
+    
+    if($_SESSION['user_role'] !== $role){
+       http_response_code(403);
+       die('Access denied.');
+        exit;
     }
 }
+
+?>
