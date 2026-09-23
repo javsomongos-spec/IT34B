@@ -4,7 +4,7 @@ session_start();
 require_once(__DIR__ . '/../function/activity.php');
 require_once(__DIR__ . '/../function/auth.php');
 require_once(__DIR__ . '/../function/redirect.php');
-
+require_once(__DIR__ . '/../function/session.php');
 // define('','');
 define('BASE_URL', 'http://localhost/IT34_jay/IT34B');
 define('DB_HOST','localhost');
