@@ -1,10 +1,12 @@
 <?php
 session_start();
 
-require_once(__DIR__ . '/../includes/activity-logger.php');
-
+require_once(__DIR__ . '/../function/activity.php');
+require_once(__DIR__ . '/../function/auth.php');
+require_once(__DIR__ . '/../function/redirect.php');
+require_once(__DIR__ . '/../function/session.php');
 // define('','');
-define('BASE_URL', 'http://localhost/IT34B_jay/IT34B');
+define('BASE_URL', 'http://localhost/IT34_jay/');
 define('DB_HOST','localhost');
 define('DB_NAME','b_lab_1');
 define('DB_USER','root');
