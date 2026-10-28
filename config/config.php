@@ -5,6 +5,7 @@ require_once(__DIR__ . '/../function/activity.php');
 require_once(__DIR__ . '/../function/auth.php');
 require_once(__DIR__ . '/../function/redirect.php');
 require_once(__DIR__ . '/../function/session.php');
+require_once(__DIR__ . '/../function/csrf.php');
 // define('','');
 define('BASE_URL', 'http://localhost/IT34_jay/');
 define('DB_HOST','localhost');
