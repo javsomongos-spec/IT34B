@@ -23,10 +23,12 @@ function exportCsv(string $filename,array $headers,array $data): void
 
     fputcsv($out,$headers);
 
-    foreach (rows as $row){
+    foreach ($rows as $row){
         fputcsv($out, array_values($row));
     }
     fclose($out);
     exit;
 
 }
+?>
+
