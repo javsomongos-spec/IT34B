@@ -8,9 +8,9 @@ require_once(__DIR__ . '/../function/session.php');
 require_once(__DIR__ . '/../function/csrf.php');
 require_once(__DIR__ . '/../function/csv.php');
 // define('','');
-define('BASE_URL', 'http://localhost/IT34_jay/');
+define('BASE_URL', 'http://localhost/IT3B/');
 define('DB_HOST','localhost');
-define('DB_NAME','b_lab_1');
+define('DB_NAME','B_lab_db');
 define('DB_USER','root');
 define('DB_PASS','');
 

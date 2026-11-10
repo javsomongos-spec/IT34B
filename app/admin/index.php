@@ -50,7 +50,7 @@ if ($action === 'export') {
 
         $stmt = $pdo->query("
             SELECT
-                activity_log_id,
+                activity_logger_id,
                 user_id,
                 user_email,
                 activity_log_action,
