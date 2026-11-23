@@ -1,18 +1,27 @@
 <?php
 session_start();
 
+require_once(__DIR__ . '/../vendor/autoload.php');
 require_once(__DIR__ . '/../function/activity.php');
 require_once(__DIR__ . '/../function/auth.php');
 require_once(__DIR__ . '/../function/redirect.php');
 require_once(__DIR__ . '/../function/session.php');
 require_once(__DIR__ . '/../function/csrf.php');
 require_once(__DIR__ . '/../function/csv.php');
+
+require_once(__DIR__ . '/../vendor/autoload.php');
+$dotenV = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenV->load();
+
+define('DB_HOST', $_ENV['DB_HOST'] ?? '');
+define('DB_NAME', $_ENV['DB_NAME'] ?? '');
+define('DB_USER', $_ENV['DB_USER'] ?? '');
+define('DB_PASS', $_ENV['DB_PASS'] ?? '');
+
 // define('','');
-define('BASE_URL', 'http://localhost/IT3B/');
-define('DB_HOST','localhost');
-define('DB_NAME','B_lab_db');
-define('DB_USER','root');
-define('DB_PASS','');
+define('BASE_URL', 'http://localhost/IT34B-1/');
+
+
 
 try{
     $pdo = new PDO(
